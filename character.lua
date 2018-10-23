@@ -16,9 +16,9 @@ function Character:Create(spriteSheetFile, size)
 
     newCharacter.spriteSheet = Sprite:CreateAnimated(spriteSheetFile, 8, 0.1)
     newCharacter.spriteSheet.scale = size
-    newCharacter.speed = 5.0
+    newCharacter.speed = 150.0
     newCharacter.jump = {
-        speed = 6.0,
+        speed = 100.0,
         jumping = false,
         jumpHeight = 20.0,
         jumpStart = nil
@@ -122,8 +122,8 @@ function Character:Update(deltaTime)
     end
 
     self.position = {
-        x = self.position.x + self.velocity.x,
-        y = self.position.y + self.velocity.y
+        x = self.position.x + (self.velocity.x * deltaTime),
+        y = self.position.y + (self.velocity.y * deltaTime)
     }
 
     if self.jump.jumping then
