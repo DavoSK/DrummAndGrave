@@ -8,7 +8,7 @@ function Torch:Create(atlasFile)
     setmetatable(newTorch, Torch)
     newTorch.sprite = Sprite:CreateAnimated(atlasFile, 8, 0.1)
     newTorch.sprite.scale = GlobalScale
-    newTorch.sprite:SetBoundaries(1, 4)
+    newTorch.sprite:SetBoundaries(5, 8)
     newTorch.lightMask = love.graphics.newImage('assets/light_mask.png')
     newTorch.castedLightColor = {r = 1, g = 1, b = 1 }
     newTorch.pulseTime = 0

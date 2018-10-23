@@ -1,1 +1,1 @@
-call "D:\~Game\love-11.1.0-win64\love.exe" "D:\~Game\Pixelartr"
+call "D:\Programy\love-11.1.0-win64\love.exe" "D:\DrummAndGrave"

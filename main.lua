@@ -39,17 +39,19 @@ end
 
 function love.keypressed(key, scancode, isrepeat)
     mainMenu:OnKeyPressed(key)
+	
+	if key == 'return' then
+		local playerPos = localPlayer.spriteSheet:GetPos()
+		local newTorch = Torch:Create('assets/torch.png')
+		newTorch:SetPos(playerPos)
+        Lights:Add(playerPos, {r =  0.984, g = 0.772, b = 0.533}, 35)
+        mainScene:AddObject(newTorch)
+	end
 end
 
 function love.update(dt)
     local playerPos = localPlayer.spriteSheet:GetPos()
-    if love.keyboard.isDown('return') then
-        local newTorch = Torch:Create('assets/torch.png')
-        newTorch:SetPos(playerPos)
-        Lights:Add(playerPos, {r =  0.984, g = 0.772, b = 0.533}, 20)
-        mainScene:AddObject(newTorch)
-    end
-
+	
     mainScene:Update(dt)
     mainMap:Update(dt)
     mainMenu:Update(dt)
